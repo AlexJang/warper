@@ -1,0 +1,48 @@
+<div>
+    <!-- Teams Table -->
+    <div>
+        <div>
+            Search Player: <input type="search" class="searchTeam" placeholder="Search Team" ng-model="searchOption.team">
+        </div>
+
+        <!-- Order Options -->
+        <div>
+            Order By:
+            <select ng-options="orderOption for orderOption in orderOptions"
+                    ng-model="selectOption"
+                    ng-change="orderTeamBySpecificOption()">
+            </select>
+        </div>
+
+        <!-- Add Player -->
+        <form ng-submit="addNewTeam()">
+            <input type="text" name="teamName" placeholder="Name" ng-model="newTeamInfo.teamName">
+            <input type="text" name="teamWins" placeholder="Wins" ng-model="newTeamInfo.wins">
+            <input type="text" name="teamLosses" placeholder="Losses" ng-model="newTeamInfo.losses">
+            <input type="text" name="gamesAhead" placeholder="Games Ahead" ng-model="newTeamInfo.gamesAhead">
+            <input type="submit" value="Submit Team">
+        </form>
+        <fieldset>
+            <legend>Teams Stats</legend>
+            <table class="teamTable teamTable">
+                <thead>
+                <tr class="tableInfo">
+                    <td>Team</td>
+                    <td>Wins</td>
+                    <td>Losses</td>
+                    <td>Games Ahead</td>
+                </tr>
+                </thead>
+                <tr ng-repeat="index in teamList
+                                            | filter: searchOption
+                                            | orderBy:teamController.sortingTeamOption:teamController.reverseTeamOrder">
+                    <td><a href="#/teams/{{index._id}}">{{index.team_name}}</a></td>
+                    <td>{{index.wins}}</td>
+                    <td>{{index.losses}}</td>
+                    <td>{{index.gamesAhead}}</td>
+                </tr>
+
+            </table>
+        </fieldset>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+{
+  "name": "warper",
+  "homepage": "https://github.com/theorangajang/Coding_Dojo",
+  "authors": [
+    "AlexJang <alexjang6@me.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.7",
+    "angular-route": "^1.5.7"
+  }
+}

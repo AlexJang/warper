@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="WarperApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Warper</title>
+    <script src="./bower_components/angular/angular.js"></script>
+    <script src="./bower_components/angular-route/angular-route.js"></script>
+    <script src="app.js"></script>
+    <script src="./assets/controllers/homeController.js"></script>
+    <script src="./assets/controllers/TeamController.js"></script>
+    <script src="./assets/controllers/RosterController.js"></script>
+    <script src="./assets/factories/teamFactory.js"></script>
+    <script src="./assets/factories/rosterFactory.js"></script>
+</head>
+<body>
+    <a href="#/teams">Teams</a>
+    <div ng-view=""></div>
+</body>
+</html>

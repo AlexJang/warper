@@ -1,0 +1,53 @@
+<div>
+    <!-- Search for player -->
+    <div>
+        Search Player: <input type="search" class="searchPlayer" placeholder="Search Batter" ng-model="searchOption.name">
+    </div>
+
+    <!-- Order Options -->
+    <div>
+        Order By:
+        <select ng-options="orderOption for orderOption in orderOptions"
+                ng-model="selectOption"
+                ng-change="orderBySpecificOption()">
+        </select>
+    </div>
+
+    <!-- Add Player -->
+    <form ng-submit="addNewPlayerToRoster()">
+        <input type="text" name="playerName" placeholder="Name" ng-model="newPlayerInfo.name">
+        <input type="text" name="playerAge" placeholder="Age" ng-model="newPlayerInfo.age">
+        <input type="text" name="battingAvg" placeholder="Batting Average" ng-model="newPlayerInfo.battingAvg">
+        <input type="text" name="fieldingAvg" placeholder="Fielding Average" ng-model="newPlayerInfo.fieldingAvg">
+        <input type="text" name="playerWar" placeholder="WAR" ng-model="newPlayerInfo.war">
+        <input type="submit" value="Submit Player">
+    </form>
+
+    <!-- Batters Table -->
+    <div>
+        <fieldset>
+            <legend>Batters Stats</legend>
+            <table class="playerTable battersTable">
+                <thead>
+                <!-- TODO: ADD POSITION -->
+                <tr class="tableInfo">
+                    <td>Player</td>
+                    <td>Age</td>
+                    <td>BA</td>
+                    <td>FA</td>
+                    <td>WAR</td>
+                </tr>
+                </thead>
+                <tr class="tableInfo" ng-repeat="playerIndex in updatedRoster
+                                            | filter: searchOption
+                                            | orderBy:sortingOption:reverseOrder">
+                    <td>{{playerIndex.name}}</td>
+                    <td>{{playerIndex.age}}</td>
+                    <td>{{playerIndex.battingAvg}}</td>
+                    <td>{{playerIndex.fieldingAvg}}</td>
+                    <td>{{playerIndex.war}}</td>
+                </tr>
+            </table>
+        </fieldset>
+    </div>
+</div>
